@@ -24,7 +24,7 @@ class Reagent {
         cardDiv.classList.add("card", "medium")
         const cardImageDiv = document.createElement('div')
         cardImageDiv.classList.add("card-image", "waves-effect", "waves-block", "waves-light")
-        cardImageDiv.innerHTML = `<img class="activator" src="images/components/${this.name}.jpg" onerror="this.onerror=null; this.src='images/components/Default.jpg'">`
+        cardImageDiv.innerHTML = `<img class="activator" src="images/reagents/${this.name}.jpg" onerror="this.onerror=null; this.src='images/components/Default.jpg'">`
         const cardContent = document.createElement('div')
         cardContent.classList.add("card-content")
         const cardNameSpan = document.createElement('span')
