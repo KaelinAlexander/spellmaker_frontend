@@ -24,7 +24,7 @@ const makerNav = () => document.getElementById("maker-nav")
 const spellsNav = () => document.getElementById("spells-nav")
 const componentsNav = () => document.getElementById("components-nav")
 
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://spellmaker.herokuapp.com'
 let editingSpell = false
 let editingComponent = false
 
