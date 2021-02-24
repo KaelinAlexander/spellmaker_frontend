@@ -404,7 +404,12 @@ static updateComponent() {
         Reagent.editedComponentId = null
         submitComponent().value = "Create Component"
 
-        loadSpells();
+        const spellComponentsToUpdate = document.getElementsByClassName("component-li")
+        for (var li of spellComponentsToUpdate) {
+            if (li.id === data.id) {
+                li.innerText = `${data.name}`
+            }
+        }
     })
 }
 
