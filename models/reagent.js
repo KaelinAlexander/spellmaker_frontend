@@ -404,12 +404,22 @@ static updateComponent() {
         Reagent.editedComponentId = null
         submitComponent().value = "Create Component"
 
-        const spellComponentsToUpdate = document.getElementsByClassName("component-li")
-        for (var li of spellComponentsToUpdate) {
-            if (li.id === data.id) {
+        let spellComponentsToUpdate = document.getElementsByClassName("component-li")
+
+        Array.from(spellComponentsToUpdate).forEach(li => {
+            if (li.id === (data.id).toString()) {
                 li.innerText = `${data.name}`
+
+                const componentRemove = document.createElement('i')
+                componentRemove.classList.add("material-icons")
+                componentRemove.id = li.id
+            
+                componentRemove.innerText = "clear"
+                componentRemove.addEventListener('click', Spell.removeComponent)
+            
+                li.append(componentRemove)
             }
-        }
+        })
     })
 }
 
