@@ -403,6 +403,8 @@ static updateComponent() {
         editingComponent = false
         Reagent.editedComponentId = null
         submitComponent().value = "Create Component"
+
+        loadSpells();
     })
 }
 

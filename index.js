@@ -120,56 +120,56 @@ function loadComponentDeitySelectors() {
 
 }
 
-function loadComponentSelectors() {
-
-    let componentSelector = document.createElement('select')
-    defaultOption = document.createElement('option')
-    defaultOption.value = ""
-    defaultOption.innerText = ""
-    componentSelector.appendChild(defaultOption)
-
-    const componentsToSelect = Reagent.all
-
-    componentsToSelect.forEach( component => {
-        let componentOption = document.createElement('option')
-        componentOption.value = component.id
-        componentOption.innerText = component.name
-        componentOption.class = "component-selector"
-        componentSelector.appendChild(componentOption)
-    })
-
-    $('select').formSelect();
-
-    return componentSelector
-
-}
-
 // function loadComponentSelectors() {
+
 //     let componentSelector = document.createElement('select')
 //     defaultOption = document.createElement('option')
 //     defaultOption.value = ""
 //     defaultOption.innerText = ""
 //     componentSelector.appendChild(defaultOption)
-//     fetch(baseUrl + '/components.json')
-//         .then(resp => {
-//             if (resp.status !== 200) {
-//                 throw new Error(resp.statusText);
-//             }
-//             return resp.json();
-//         })
-//         .then(data => {
-//             data.forEach(component => {
-//                 let componentOption = document.createElement('option')
-//                 componentOption.value = component.id
-//                 componentOption.innerText = component.name
-//                 componentOption.class = "component-selector"
-//                 componentSelector.appendChild(componentOption)
-//             })
-//             $('select').formSelect();
-//         })
-//         .catch(errors => console.log(errors))
+
+//     const componentsToSelect = Reagent.all
+
+//     componentsToSelect.forEach( component => {
+//         let componentOption = document.createElement('option')
+//         componentOption.value = component.id
+//         componentOption.innerText = component.name
+//         componentOption.class = "component-selector"
+//         componentSelector.appendChild(componentOption)
+//     })
+
+//     $('select').formSelect();
+
 //     return componentSelector
+
 // }
+
+function loadComponentSelectors() {
+    let componentSelector = document.createElement('select')
+    defaultOption = document.createElement('option')
+    defaultOption.value = ""
+    defaultOption.innerText = ""
+    componentSelector.appendChild(defaultOption)
+    fetch(baseUrl + '/components.json')
+        .then(resp => {
+            if (resp.status !== 200) {
+                throw new Error(resp.statusText);
+            }
+            return resp.json();
+        })
+        .then(data => {
+            data.forEach(component => {
+                let componentOption = document.createElement('option')
+                componentOption.value = component.id
+                componentOption.innerText = component.name
+                componentOption.class = "component-selector"
+                componentSelector.appendChild(componentOption)
+            })
+            $('select').formSelect();
+        })
+        .catch(errors => console.log(errors))
+    return componentSelector
+}
 
 function getSelectValues(select) {
     var result = [];
